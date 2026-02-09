@@ -1,16 +1,17 @@
-# React + Vite
+# Passing data from child to parent
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- Create a function in the parent component that will receive the data from the child component as an argument.
+- Pass this function as a prop to the child component.
+- In the child component, call the function passed as a prop and pass the data you want to send to the parent component as an argument.
 
-Currently, two official plugins are available:
+# Props Drilling
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Props drilling is the process of passing data from a parent component to a child component through multiple levels of components.
 
-## React Compiler
+App
+├── ParentComponent
+│ ├── ChildComponent1
+│ | └── ChildComponent2
+| | | └── ChildComponent3
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+App Component: parent who has the data and wants to pass it down to ChildComponent3.
