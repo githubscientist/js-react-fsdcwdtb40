@@ -1,7 +1,11 @@
-function Header({ message }) {
+function Header({ getDataFromChild }) {
+    let message = 'hi, how are you?';
+
+    getDataFromChild(message);
+
     return (
         <>
-            <h1>Message from Parent: {message}</h1>
+            <h1>Hello World!</h1>
         </>
     )
 }
