@@ -1,27 +1,18 @@
-function Header({ name }) {
-
-  // props -> properties
-  // data from the parent component
-  // props -> object (javascrpt)
-  /*
-    props = {
-      name: 'sathish'
-    }
-  */
-
+function Header({ name, age }) {
   return (
     <>
-      <h1>Hello, {name.slice(0, 1).toUpperCase() + name.slice(1,)}!</h1>
+      <h1>Hello, {name.slice(0, 1).toUpperCase() + name.slice(1,)}!, You're {age} years old</h1>
     </>
   )
 }
 
 function App() {
   let name = 'sathish';
+  let age = 35;
 
   return (
     <>
-      <Header name={name} />
+      <Header name={name} age={age} />
     </>
   )
 }
