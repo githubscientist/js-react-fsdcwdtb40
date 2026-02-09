@@ -1,7 +1,7 @@
-function Header({ name, age }) {
+function Header({ message }) {
     return (
         <>
-            <h1>Hello, {name.slice(0, 1).toUpperCase() + name.slice(1,)}!, You're {age} years old</h1>
+            <h1>Message from Parent: {message}</h1>
         </>
     )
 }

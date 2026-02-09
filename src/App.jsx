@@ -1,12 +1,11 @@
 import Header from "./components/Header";
 
 function App() {
-  let name = 'sathish';
-  let age = 35;
+  let message = 'hi, how are you?';
 
   return (
     <>
-      <Header name={name} age={age} />
+      <Header message={message} />
     </>
   )
 }
