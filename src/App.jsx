@@ -1,16 +1,23 @@
+import { useState } from "react";
+
+/*
+  count = ''
+
+  State changes causes component's re-rendering.
+*/
+
 const App = () => {
 
-  let count = 0;
+  let [count, setCount] = useState(0);
 
   const handleClick = () => {
-    count = count + 1;
-    console.log(count);
+    setCount(count + 1);
   }
 
   return (
     <>
       <h1>Count: {count}</h1>
-      <button onClick={handleClick}>Count + 1</button>
+      <button onClick={handleClick}>Increase</button>
     </>
   )
 }
