@@ -8,16 +8,29 @@ import { useState } from "react";
 
 const App = () => {
 
-  let [count, setCount] = useState(0);
+  let [count, setCount] = useState(1);
 
-  const handleClick = () => {
-    setCount(count + 1);
+  const handleIncrease = () => {
+    if (count < 10) {
+      setCount(count + 1);
+    }
   }
+
+  const handleDecrease = () => {
+    if (count > 1) {
+      setCount(count - 1);
+    }
+  };
+
+
 
   return (
     <>
-      <h1>Count: {count}</h1>
-      <button onClick={handleClick}>Increase</button>
+      <button onClick={handleDecrease}>-</button>
+      &nbsp;&nbsp;<span><strong>{count}</strong></span>&nbsp;&nbsp;
+      <button onClick={handleIncrease}>+</button>
+      &nbsp;&nbsp;
+      <button onClick={() => setCount(1)}>Reset</button>
     </>
   )
 }
