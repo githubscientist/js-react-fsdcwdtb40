@@ -1,28 +1,34 @@
 import { useState } from "react";
 
 /*
-  count = ''
-
-  State changes causes component's re-rendering.
+  history = ['I', 'I', 'I', 'D', 'R', 'D', 'I']
 */
 
 const App = () => {
 
   let [count, setCount] = useState(1);
+  let [history, setHistory] = useState([]);
 
   const handleIncrease = () => {
     if (count < 10) {
       setCount(count + 1);
+      setHistory([...history, 'I']);
     }
   }
 
   const handleDecrease = () => {
     if (count > 1) {
       setCount(count - 1);
+      setHistory([...history, 'D']);
     }
   };
 
+  const handleReset = () => {
+    setCount(1);
+    setHistory([...history, 'R']);
+  };
 
+  console.log(history);
 
   return (
     <>
@@ -30,7 +36,7 @@ const App = () => {
       &nbsp;&nbsp;<span><strong>{count}</strong></span>&nbsp;&nbsp;
       <button onClick={handleIncrease}>+</button>
       &nbsp;&nbsp;
-      <button onClick={() => setCount(1)}>Reset</button>
+      <button onClick={handleReset}>Reset</button>
     </>
   )
 }
