@@ -1,14 +1,16 @@
-import ParentComponent from "./components/ParentComponent";
-
 const App = () => {
 
-  const name = 'Krish';
+  let count = 0;
+
+  const handleClick = () => {
+    count = count + 1;
+    console.log(count);
+  }
 
   return (
     <>
-      <ParentComponent
-        name={name}
-      />
+      <h1>Count: {count}</h1>
+      <button onClick={handleClick}>Count + 1</button>
     </>
   )
 }
