@@ -1,39 +1,55 @@
 import { useState } from "react";
 
 /*
-  history = ['I', 'I', 'I', 'D', 'R', 'D', 'I']
+  complex state:
+
+  counts = {
+    count: 6,
+    history: ['I', 'I', 'D']
+  }
 */
 
 const App = () => {
 
-  let [count, setCount] = useState(1);
-  let [history, setHistory] = useState([]);
+  let [values, setValues] = useState({
+    count: 1,
+    history: []
+  });
 
   const handleIncrease = () => {
-    if (count < 10) {
-      setCount(count + 1);
-      setHistory([...history, 'I']);
+    if (values.count < 10) {
+      setValues({ count: values.count + 1, history: [...values.history, 'I'] });
     }
   }
 
   const handleDecrease = () => {
-    if (count > 1) {
-      setCount(count - 1);
-      setHistory([...history, 'D']);
+    if (values.count > 1) {
+      setValues({
+        count: values.count - 1,
+        history: [
+          ...values.history,
+          'D'
+        ]
+      })
     }
   };
 
   const handleReset = () => {
-    setCount(1);
-    setHistory([...history, 'R']);
+    setValues({
+      count: 1,
+      history: [
+        ...values.history,
+        'R'
+      ]
+    });
   };
 
-  console.log(history);
+  console.log(values);
 
   return (
     <>
       <button onClick={handleDecrease}>-</button>
-      &nbsp;&nbsp;<span><strong>{count}</strong></span>&nbsp;&nbsp;
+      &nbsp;&nbsp;<span><strong>{values.count}</strong></span>&nbsp;&nbsp;
       <button onClick={handleIncrease}>+</button>
       &nbsp;&nbsp;
       <button onClick={handleReset}>Reset</button>
