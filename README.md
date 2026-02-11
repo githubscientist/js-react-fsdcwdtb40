@@ -46,3 +46,7 @@ App Component: parent who has the data and wants to pass it down to ChildCompone
 - useState is a hook that allows you to add state to functional components.
 - hook: a special function that allows you to "hook into" React features, such as state and lifecycle methods, from functional components.
 - state: a way to store and manage data in a component that can change over time.
+
+### Uncontrolled inputs vs Controlled inputs
+
+- Uncontrolled inputs are the form elements where we do not use React state to manage the value of the input.

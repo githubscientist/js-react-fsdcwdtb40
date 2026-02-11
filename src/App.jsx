@@ -1,23 +1,9 @@
-const App = () => {
-  let recipes = [
-    'Biryani',
-    'Pulao',
-    'Fried Rice',
-    'Noodles',
-    'Pasta',
-  ]
+import Login from "./components/Login";
 
+const App = () => {
   return (
     <>
-      <h1>Recipes</h1>
-      <ul>
-        {
-          recipes
-            .map((recipe, index) => (
-              <li key={index}>{recipe}</li>
-            ))
-        }
-      </ul>
+      <Login />
     </>
   )
 }
