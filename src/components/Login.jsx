@@ -1,11 +1,16 @@
+import { useState } from "react";
+
 const Login = () => {
+    // 1. create states for each of the input elements in react form
+    // 2. set the element's value as the state value
+    // 3. set the values of the input elements as the state values
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
+    // controlled inputs
     const handleLogin = (event) => {
         event.preventDefault();
-        // uncontrolled inputs
-        const username = event.target.username.value;
-        const password = event.target.password.value;
-
-        console.log('logging in with', username, 'and', password);
+        console.log(username, password);
     }
 
     return (
@@ -17,6 +22,8 @@ const Login = () => {
                         type="text"
                         placeholder="username..."
                         name="username"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
                     />
                 </div>
                 <br />
@@ -25,6 +32,8 @@ const Login = () => {
                         type="password"
                         placeholder="password..."
                         name="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
                     />
                 </div>
                 <br />

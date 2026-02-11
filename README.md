@@ -50,3 +50,5 @@ App Component: parent who has the data and wants to pass it down to ChildCompone
 ### Uncontrolled inputs vs Controlled inputs
 
 - Uncontrolled inputs are the form elements where we do not use React state to manage the value of the input.
+
+- Controlled inputs are the form elements where we use React state to manage the value of the input.
