@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 
 const App = () => {
@@ -5,12 +6,9 @@ const App = () => {
   const [todos, setTodos] = useState([]);
 
   const fetchTodos = () => {
-    fetch('https://698dd177b79d1c928ed6a345.mockapi.io/todos')
+    axios.get('https://698dd177b79d1c928ed6a345.mockapi.io/todos')
       .then(response => {
-        return response.json();
-      })
-      .then(response => {
-        setTodos(response);
+        setTodos(response.data);
       })
   }
 
