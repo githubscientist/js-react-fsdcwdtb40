@@ -1,31 +1,31 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+/*
+  useEffect
+    - It's a react hook.
+    - It allows us to perform side effects in our components.
+    - examples: fetching data, setting up a subscription, and manually changing the DOM in React components.
+*/
 
 const App = () => {
 
-  const [todos, setTodos] = useState([]);
+  const [count, setCount] = useState(0);
 
-  const fetchTodos = () => {
-    axios.get('https://698dd177b79d1c928ed6a345.mockapi.io/todos')
-      .then(response => {
-        setTodos(response.data);
-      })
-  }
+  /*
+    1. run a function after a component is rendered.
+    2. run a function after a component is rendered and whenever a particular state changes.
+    3. run a function after a component is rendered and whenever any state changes.
+  */
 
-  console.log(todos);
+  useEffect(() => {
+    console.log('runs after first render and for every state changes');
+  });
 
   return (
     <>
-      <button onClick={fetchTodos}>Fetch Todos</button>
-      <h1>Todos</h1>
-      <ul>
-        {
-          todos
-            .map(todo => (
-              <li key={todo.id}>{todo.title}</li>
-            ))
-        }
-      </ul>
+      <h1>Count: {count}</h1>
+      <button onClick={() => setCount(count + 1)}>Increase</button>
     </>
   )
 }
