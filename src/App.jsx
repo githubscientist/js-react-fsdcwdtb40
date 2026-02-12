@@ -20,7 +20,7 @@ const App = () => {
 
   useEffect(() => {
     console.log('runs after first render and for every state changes');
-  });
+  }, []);
 
   return (
     <>
