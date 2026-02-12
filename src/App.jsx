@@ -10,7 +10,8 @@ import { useEffect, useState } from "react";
 
 const App = () => {
 
-  const [count, setCount] = useState(0);
+  const [likes, setLikes] = useState(0);
+  const [dislikes, setDislikes] = useState(0);
 
   /*
     1. run a function after a component is rendered.
@@ -20,12 +21,17 @@ const App = () => {
 
   useEffect(() => {
     console.log('runs after first render and for every state changes');
-  }, []);
+  }, [likes]);
 
   return (
     <>
-      <h1>Count: {count}</h1>
-      <button onClick={() => setCount(count + 1)}>Increase</button>
+      <div>
+        <button onClick={() => setLikes(likes + 1)}>Like</button> &nbsp; {likes} &nbsp; likes
+      </div>
+      <br />
+      <div>
+        <button onClick={() => setDislikes(dislikes + 1)}>Dislike</button> &nbsp; {dislikes}  &nbsp; dislikes
+      </div>
     </>
   )
 }
