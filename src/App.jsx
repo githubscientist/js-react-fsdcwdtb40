@@ -1,23 +1,27 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 const App = () => {
 
-  // create a reference
-  const messageRef = useRef(null);
+  /*
+    value of useRef object is persisting across the component re-renders.
+    value change in useRef object does not cause re-rendering.
+  */
 
-  const handleSend = () => {
-    console.log('sending message...');
-    console.log(messageRef.current.value);
+  let likes = 0;
+  let [test, setTest] = useState(0);
+
+  const handleLike = () => {
+    likes++;
+    console.log(likes);
   }
+
+  console.log('component rendered')
 
   return (
     <>
-      <input
-        type="text"
-        placeholder="message..."
-        ref={messageRef}
-      />
-      <button onClick={handleSend}>Send</button>
+      <h1>Likes: {likes}</h1>
+      <button onClick={handleLike}>Like</button> &nbsp;
+      <button onClick={() => setTest(test + 1)}>Change State</button>
     </>
   )
 }
