@@ -1,17 +1,13 @@
 import { useReducer } from "react";
 
 const reducer = (state, action) => {
-  switch (action.type) {
-    case 'LIKE':
-      state = state + 1;
-      break;
 
-    case 'DISLIKE':
-      state = state - 1;
-      break;
-
-    default:
-      return state;
+  if (action.type == 'LIKE') {
+    state = state + 1;
+  } else if (action.type == 'DISLIKE') {
+    state = state - 1;
+  } else {
+    return state;
   }
 
   return state;
@@ -21,23 +17,11 @@ const App = () => {
 
   let [likes, dispatch] = useReducer(reducer, 0);
 
-  const handleLike = () => {
-    dispatch({
-      type: 'LIKE'
-    });
-  }
-
-  const handleDislike = () => {
-    dispatch({
-      type: 'DISLIKE'
-    });
-  }
-
   return (
     <>
       <h1>Likes: {likes}</h1>
-      <button onClick={handleLike}>Like</button> &nbsp;
-      <button onClick={handleDislike}>Dislike</button>
+      <button onClick={() => dispatch({ type: 'LIKE' })}>Like</button> &nbsp;
+      <button onClick={() => dispatch({ type: 'DISLIKE' })}>Dislike</button>
     </>
   )
 }
