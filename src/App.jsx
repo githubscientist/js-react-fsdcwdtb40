@@ -1,19 +1,43 @@
-import { useState } from "react";
+import { useReducer } from "react";
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'LIKE':
+      state = state + 1;
+      break;
+
+    case 'DISLIKE':
+      state = state - 1;
+      break;
+
+    default:
+      return state;
+  }
+
+  return state;
+}
 
 const App = () => {
 
-  let [likes, setLikes] = useState(0);
+  let [likes, dispatch] = useReducer(reducer, 0);
 
   const handleLike = () => {
-    setLikes(likes + 1);
+    dispatch({
+      type: 'LIKE'
+    });
   }
 
-  console.log(likes);
+  const handleDislike = () => {
+    dispatch({
+      type: 'DISLIKE'
+    });
+  }
 
   return (
     <>
       <h1>Likes: {likes}</h1>
-      <button onClick={handleLike}>Like</button>
+      <button onClick={handleLike}>Like</button> &nbsp;
+      <button onClick={handleDislike}>Dislike</button>
     </>
   )
 }
