@@ -1,8 +1,13 @@
+import { useRef } from "react";
+
 const App = () => {
+
+  // create a reference
+  const messageRef = useRef(null);
 
   const handleSend = () => {
     console.log('sending message...');
-    console.log(document.getElementById('message').value);
+    console.log(messageRef.current.value);
   }
 
   return (
@@ -10,8 +15,7 @@ const App = () => {
       <input
         type="text"
         placeholder="message..."
-        id="message"
-        name="message"
+        ref={messageRef}
       />
       <button onClick={handleSend}>Send</button>
     </>
