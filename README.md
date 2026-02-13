@@ -52,3 +52,9 @@ App Component: parent who has the data and wants to pass it down to ChildCompone
 - Uncontrolled inputs are the form elements where we do not use React state to manage the value of the input.
 
 - Controlled inputs are the form elements where we use React state to manage the value of the input.
+
+### useRef Hook
+
+- We can use useRef in two ways:
+  - To access a DOM element directly.
+  - To store a mutable value that does not cause a re-render when updated.

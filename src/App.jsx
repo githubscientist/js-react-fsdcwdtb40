@@ -1,28 +1,19 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-
 const App = () => {
 
-  const [todos, setTodos] = useState([]);
-
-  useEffect(() => {
-    axios.get('https://698dd177b79d1c928ed6a345.mockapi.io/todos')
-      .then(response => {
-        setTodos(response.data);
-      })
-  }, []);
+  const handleSend = () => {
+    console.log('sending message...');
+    console.log(document.getElementById('message').value);
+  }
 
   return (
     <>
-      <h1>Todos</h1>
-      <ul>
-        {
-          todos
-            .map(todo => (
-              <li key={todo.id}>{todo.title}</li>
-            ))
-        }
-      </ul>
+      <input
+        type="text"
+        placeholder="message..."
+        id="message"
+        name="message"
+      />
+      <button onClick={handleSend}>Send</button>
     </>
   )
 }
