@@ -7,19 +7,19 @@ const App = () => {
     value change in useRef object does not cause re-rendering.
   */
 
-  let likes = useRef(0);
+  let [likes, setLikes] = useState(0);
   let [test, setTest] = useState(0);
 
   const handleLike = () => {
-    likes.current++;
-    console.log(likes.current);
+    setLikes(likes + 1);
   }
 
+  console.log(likes);
   console.log('component rendered')
 
   return (
     <>
-      <h1>Likes: {likes.current}</h1>
+      <h1>Likes: {likes}</h1>
       <button onClick={handleLike}>Like</button> &nbsp;
       <button onClick={() => setTest(test + 1)}>Change State</button>
     </>
