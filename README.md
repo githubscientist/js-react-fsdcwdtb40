@@ -58,3 +58,11 @@ App Component: parent who has the data and wants to pass it down to ChildCompone
 - We can use useRef in two ways:
   - To access a DOM element directly.
   - To store a mutable value that does not cause a re-render when updated.
+
+### useState hook
+
+- state management hook that allows you to add state to functional components.
+
+### useReducer hook
+
+- state management hook that allows you to manage complex state logic in functional components.
