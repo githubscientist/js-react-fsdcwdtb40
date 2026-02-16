@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 const Home = () => {
     return (
         <div className="p-4">
@@ -10,8 +12,17 @@ const Home = () => {
             </p>
 
             <div className="p-4 flex flex-row gap-5">
-                <a className="hover:text-red-700 hover:border hover: border-2 hover: p-2" href="/register" >Register</a>
-                <a className="hover:text-red-700 hover:border hover: border-2 hover: p-2" href="/login">Login</a>
+                <Link
+                    className="hover:text-red-700 hover:border hover: border-2 hover: p-2" to="/register"
+                >
+                    Register
+                </Link>
+
+                <Link
+                    className="hover:text-red-700 hover:border hover: border-2 hover: p-2" to="/login"
+                >
+                    Login
+                </Link>
             </div>
         </div>
     )
