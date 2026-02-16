@@ -1,6 +1,6 @@
 import Button from "./components/Button";
 import './App.css';
-import { useCallback, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 
 const App = () => {
 
@@ -10,6 +10,21 @@ const App = () => {
   const handleClick = useCallback(() => {
     console.log(`subscription successful for ${email}`);
   }, [email]);
+
+  // create an expensive function
+  // sum of N natural numbers
+  // 10: 1, 2, 3, 4, 5 ....8, 9, 10 => 55
+  const expensiveValue = useMemo(() => {
+    console.log('calculating the expensive value...');
+
+    let sum = 0;
+
+    for (let i = 1; i <= 1000000000; i++) {
+      sum += i;
+    }
+
+    return sum;
+  }, []);
 
   return (
     <>
@@ -25,6 +40,10 @@ const App = () => {
           handleClick={handleClick}
         />
       </form>
+
+      <div>
+        <p>Expensive Value: {expensiveValue}</p>
+      </div>
     </>
   )
 }
