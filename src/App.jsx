@@ -1,27 +1,25 @@
-import { useReducer } from "react";
-
-const reducer = (state, action) => {
-
-  if (action.type == 'LIKE') {
-    state = state + 1;
-  } else if (action.type == 'DISLIKE') {
-    state = state - 1;
-  } else {
-    return state;
-  }
-
-  return state;
-}
+import Button from "./components/Button";
+import './App.css';
 
 const App = () => {
 
-  let [likes, dispatch] = useReducer(reducer, 0);
+  // the function is created when the component re-renders
+  const handleClick = () => {
+    console.log('button clicked');
+  }
 
   return (
     <>
-      <h1>Likes: {likes}</h1>
-      <button onClick={() => dispatch({ type: 'LIKE' })}>Like</button> &nbsp;
-      <button onClick={() => dispatch({ type: 'DISLIKE' })}>Dislike</button>
+      <form className="formSubscribe">
+        <input
+          type="text"
+          placeholder="Type your email..."
+        />
+      </form>
+      &nbsp;
+      <Button
+        handleClick={handleClick}
+      />
     </>
   )
 }
