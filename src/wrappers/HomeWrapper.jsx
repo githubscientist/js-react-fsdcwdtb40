@@ -1,6 +1,8 @@
 const HomeWrapper = () => {
     return (
-        <div>HomeWrapper</div>
+        <>
+            <h1 className="text-4xl p-4">Home Wrapper</h1>
+        </>
     )
 }
 

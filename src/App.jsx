@@ -1,5 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router";
 import Home from './pages/Home';
+import Register from './pages/Register';
+import Login from './pages/Login';
 
 /*
   http://localhost:5173/ => Home.jsx
@@ -13,6 +15,14 @@ const App = () => {
     {
       path: "/",
       element: <Home />
+    },
+    {
+      path: "/register",
+      element: <Register />
+    },
+    {
+      path: "/login",
+      element: <Login />
     }
   ]);
 
