@@ -74,3 +74,12 @@ App Component: parent who has the data and wants to pass it down to ChildCompone
 - useMemo: a hook which is used to memoize a value, so that it is only re-computed when its dependencies change.
 
 - Without useMemo, the useCallback function is not really useful.
+
+### React Router
+
+- In React, we are so far only working with a single page, but in real world applications, we often need to have multiple pages and navigate between them. This is where React Router comes in.
+- React Router is a library that allows you to handle routing in your React applications. It provides a way to navigate between different components and pages in your application.
+
+Steps:
+
+1. Install React Router: `npm install react-router@latest`

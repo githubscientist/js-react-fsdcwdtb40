@@ -1,50 +1,22 @@
-import Button from "./components/Button";
-import './App.css';
-import { useCallback, useMemo, useState } from "react";
+import { createBrowserRouter, RouterProvider } from "react-router";
 
 const App = () => {
 
-  const [email, setEmail] = useState('');
-
-  // the function is created when the component re-renders
-  const handleClick = useCallback(() => {
-    console.log(`subscription successful for ${email}`);
-  }, [email]);
-
-  // create an expensive function
-  // sum of N natural numbers
-  // 10: 1, 2, 3, 4, 5 ....8, 9, 10 => 55
-  const expensiveValue = useMemo(() => {
-    console.log('calculating the expensive value...');
-
-    let sum = 0;
-
-    for (let i = 1; i <= 1000000000; i++) {
-      sum += i;
+  // 1. create a browser router object
+  // root route: http://localhost:5173
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <h1>Hello, World!</h1>
     }
+  ]);
 
-    return sum;
-  }, []);
+  // 2. provide the router object as props to the component
 
   return (
-    <>
-      <form className="formSubscribe" onSubmit={(e) => e.preventDefault()}>
-        <input
-          type="text"
-          placeholder="Type your email..."
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        &nbsp;
-        <Button
-          handleClick={handleClick}
-        />
-      </form>
-
-      <div>
-        <p>Expensive Value: {expensiveValue}</p>
-      </div>
-    </>
+    <RouterProvider
+      router={router}
+    />
   )
 }
 
