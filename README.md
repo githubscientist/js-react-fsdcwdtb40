@@ -72,3 +72,5 @@ App Component: parent who has the data and wants to pass it down to ChildCompone
 - useCallback: a hook which is used to memoize a function, so that it is only re-created when its dependencies change.
 
 - useMemo: a hook which is used to memoize a value, so that it is only re-computed when its dependencies change.
+
+- Without useMemo, the useCallback function is not really useful.
