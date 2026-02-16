@@ -1,4 +1,9 @@
 import { createBrowserRouter, RouterProvider } from "react-router";
+import Home from './pages/Home';
+
+/*
+  http://localhost:5173/ => Home.jsx
+*/
 
 const App = () => {
 
@@ -7,7 +12,7 @@ const App = () => {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <h1>Hello, World!</h1>
+      element: <Home />
     }
   ]);
 
