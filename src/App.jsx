@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import HomeWrapper from "./wrappers/HomeWrapper";
 import { ToastContainer } from "react-toastify";
 import ErrorPage from "./pages/ErrorPage";
+import Dashboard from "./pages/Dashboard";
 
 /*
   http://localhost:5173/ => HomeWrapper.jsx
@@ -36,6 +37,10 @@ const App = () => {
       ],
       errorElement: <ErrorPage />
     },
+    {
+      path: "/dashboard",
+      element: <Dashboard />
+    }
   ]);
 
   // 2. provide the router object as props to the component
