@@ -6,6 +6,8 @@ import HomeWrapper from "./wrappers/HomeWrapper";
 import { ToastContainer } from "react-toastify";
 import ErrorPage from "./pages/ErrorPage";
 import Dashboard from "./pages/Dashboard";
+import Stats from "./pages/Stats";
+import Todos from "./pages/Todos";
 
 /*
   http://localhost:5173/ => HomeWrapper.jsx
@@ -39,7 +41,17 @@ const App = () => {
     },
     {
       path: "/dashboard",
-      element: <Dashboard />
+      element: <Dashboard />,
+      children: [
+        {
+          path: "",
+          element: <Stats />
+        },
+        {
+          path: "todos",
+          element: <Todos />
+        }
+      ]
     }
   ]);
 
