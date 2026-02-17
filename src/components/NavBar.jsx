@@ -2,25 +2,25 @@ import { Link } from "react-router";
 
 const NavBar = () => {
     return (
-        <div className="p-4">
+        <div className="p-4 ml-4">
             <ul className="flex flex-row space-x-5">
                 <li>
                     <Link
-                        className="hover:text-red-700 hover:border hover: border-2 hover: p-2" to="/"
+                        className="hover:bg-slate-700 hover:text-white hover:border hover: border-2 hover: p-2" to="/"
                     >
                         Home
                     </Link>
                 </li>
                 <li>
                     <Link
-                        className="hover:text-red-700 hover:border hover: border-2 hover: p-2" to="/register"
+                        className="hover:bg-slate-700 hover:text-white hover:border hover: border-2 hover: p-2" to="/register"
                     >
                         Register
                     </Link>
                 </li>
                 <li>
                     <Link
-                        className="hover:text-red-700 hover:border hover: border-2 hover: p-2" to="/login"
+                        className="hover:bg-slate-700 hover:text-white hover:border hover: border-2 hover: p-2" to="/login"
                     >
                         Login
                     </Link>
