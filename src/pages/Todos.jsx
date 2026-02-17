@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link, Outlet } from "react-router";
 
 const Todos = () => {
     const [todos, setTodos] = useState([]);
@@ -28,16 +29,25 @@ const Todos = () => {
                     </>
                 ) :
                     (
-                        <>
+                        <div className="flex flex-row gap-10">
                             <ul className="space-y-3 list-disc pl-10 mt-4">
                                 {
                                     todos
                                         .map(todo => (
-                                            <li key={todo.id}>{todo.title}</li>
+                                            <li key={todo.id}>
+                                                <Link
+                                                    className="hover:underline"
+                                                    to={`/dashboard/todos/todo/${todo.id}`}
+                                                >
+                                                    {todo.title}
+                                                </Link>
+                                            </li>
                                         ))
                                 }
                             </ul>
-                        </>
+
+                            <Outlet />
+                        </div>
                     )
             }
         </div>

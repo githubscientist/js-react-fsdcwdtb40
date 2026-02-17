@@ -8,6 +8,7 @@ import ErrorPage from "./pages/ErrorPage";
 import Dashboard from "./pages/Dashboard";
 import Stats from "./pages/Stats";
 import Todos from "./pages/Todos";
+import Todo from "./components/Todo";
 
 /*
   http://localhost:5173/ => HomeWrapper.jsx
@@ -49,7 +50,13 @@ const App = () => {
         },
         {
           path: "todos",
-          element: <Todos />
+          element: <Todos />,
+          children: [
+            {
+              path: "todo/:id",
+              element: <Todo />
+            }
+          ]
         }
       ]
     }
