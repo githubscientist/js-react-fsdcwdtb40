@@ -19,7 +19,11 @@ const Register = () => {
         console.log(`Password: ${password}`);
 
         setTimeout(() => {
-            // alert('Registration successful');
+            // clear the form
+            setName('');
+            setEmail('');
+            setPassword('');
+
             toast.success('Registration Successful');
             navigate('/login');
         }, 500);

@@ -4,6 +4,7 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import HomeWrapper from "./wrappers/HomeWrapper";
 import { ToastContainer } from "react-toastify";
+import ErrorPage from "./pages/ErrorPage";
 
 /*
   http://localhost:5173/ => HomeWrapper.jsx
@@ -32,7 +33,8 @@ const App = () => {
           path: "login",
           element: <Login />
         }
-      ]
+      ],
+      errorElement: <ErrorPage />
     },
   ]);
 
