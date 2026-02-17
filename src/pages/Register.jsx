@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router";
+import { toast } from "react-toastify";
 
 // controlled component
 // using state to manage their values
@@ -18,7 +19,8 @@ const Register = () => {
         console.log(`Password: ${password}`);
 
         setTimeout(() => {
-            alert('Registration successful');
+            // alert('Registration successful');
+            toast.success('Registration Successful');
             navigate('/login');
         }, 500);
     }

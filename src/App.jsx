@@ -3,6 +3,7 @@ import Home from './pages/Home';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import HomeWrapper from "./wrappers/HomeWrapper";
+import { ToastContainer } from "react-toastify";
 
 /*
   http://localhost:5173/ => HomeWrapper.jsx
@@ -38,9 +39,15 @@ const App = () => {
   // 2. provide the router object as props to the component
 
   return (
-    <RouterProvider
-      router={router}
-    />
+    <>
+      <ToastContainer
+        hideProgressBar={true}
+        autoClose={2500}
+      />
+      <RouterProvider
+        router={router}
+      />
+    </>
   )
 }
 
