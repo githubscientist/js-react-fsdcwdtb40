@@ -3,7 +3,11 @@ const Stats = () => {
         <div className="flex flex-col gap-10">
             <p className="text-2xl">Number of Todos: { }</p>
 
-            <h2 className="text-3xl font-semibold text-gray-500">Recent Activity</h2>
+            <p className="text-2xl">Incomplete Todos: { }</p>
+
+            <p className="text-2xl">Completed Todos: { }</p>
+
+            <p className="text-2xl">Recent Todos (5): { }</p>
         </div>
     )
 }

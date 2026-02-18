@@ -9,6 +9,7 @@ import Dashboard from "./pages/Dashboard";
 import Stats from "./pages/Stats";
 import Todos from "./pages/Todos";
 import Todo from "./components/Todo";
+import todosLoader from "./loaders/unit/todos";
 
 /*
   http://localhost:5173/ => HomeWrapper.jsx
@@ -45,12 +46,14 @@ const App = () => {
       element: <Dashboard />,
       children: [
         {
-          path: "",
+          index: true,
           element: <Stats />
         },
         {
           path: "todos",
           element: <Todos />,
+          loader: todosLoader,
+          hydrateFallbackElement: <p className="text-xl">Loading todos...</p>,
           children: [
             {
               path: "todo/:id",

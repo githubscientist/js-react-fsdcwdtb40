@@ -1,20 +1,7 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { Link, Outlet } from "react-router";
+import { Link, Outlet, useLoaderData } from "react-router";
 
 const Todos = () => {
-    const [todos, setTodos] = useState([]);
-
-    useEffect(() => {
-        // perform the api call
-        // to fetch the list of all todos
-        axios
-            .get('https://698dd177b79d1c928ed6a345.mockapi.io/todos')
-            .then(response => {
-                setTodos(response.data);
-            });
-
-    }, []);
+    const todos = useLoaderData();
 
     return (
         <div>
