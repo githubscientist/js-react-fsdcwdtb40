@@ -1,9 +1,21 @@
-import { useLoaderData } from "react-router";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router";
 
 const Todo = () => {
-    const todo = useLoaderData();
 
-    console.log(todo);
+    const [todo, setTodo] = useState({});
+    const [searchParams, setSearchParams] = useSearchParams();
+    const id = searchParams.get("id");
+
+    const fetchTodo = async () => {
+        const response = await axios.get(`https://698dd177b79d1c928ed6a345.mockapi.io/todos/${id}`);
+        setTodo(response.data);
+    }
+
+    useEffect(() => {
+        fetchTodo();
+    }, [id]);
 
     return (
         <div className="mt-4 border border-gray-300 shadow-2xl flex flex-col m-2">
@@ -20,7 +32,7 @@ const Todo = () => {
                                     <input
                                         type="checkbox"
                                         className="w-4 accent-green-600"
-                                        checked={todo.isCompleted}
+                                        checked={todo?.isCompleted ?? false}
                                         readOnly
                                     />
                                     <p>
@@ -32,8 +44,8 @@ const Todo = () => {
                                     <input
                                         type="checkbox"
                                         className="w-4"
-                                        checked={todo.isCompleted}
-                                        readonly
+                                        checked={todo?.isCompleted ?? false}
+                                        readOnly
                                     />
                                     <p>
                                         Incomplete

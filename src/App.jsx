@@ -57,9 +57,8 @@ const App = () => {
           hydrateFallbackElement: <p className="text-xl">Loading todos...</p>,
           children: [
             {
-              path: "todo/:id",
+              path: "todo",
               element: <Todo />,
-              loader: todoLoader,
             }
           ]
         }

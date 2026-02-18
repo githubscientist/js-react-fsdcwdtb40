@@ -24,7 +24,7 @@ const Todos = () => {
                                             <li key={todo.id}>
                                                 <Link
                                                     className="hover:underline"
-                                                    to={`/dashboard/todos/todo/${todo.id}`}
+                                                    to={`/dashboard/todos/todo/?id=${todo.id}`}
                                                 >
                                                     {todo.title}
                                                 </Link>
