@@ -10,6 +10,7 @@ import Stats from "./pages/Stats";
 import Todos from "./pages/Todos";
 import Todo from "./components/Todo";
 import todosLoader from "./loaders/unit/todos";
+import todoLoader from "./loaders/unit/todo";
 
 /*
   http://localhost:5173/ => HomeWrapper.jsx
@@ -57,7 +58,8 @@ const App = () => {
           children: [
             {
               path: "todo/:id",
-              element: <Todo />
+              element: <Todo />,
+              loader: todoLoader,
             }
           ]
         }
