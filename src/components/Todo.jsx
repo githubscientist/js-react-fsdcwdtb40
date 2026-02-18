@@ -1,8 +1,30 @@
-import { useLoaderData } from "react-router";
+import axios from "axios";
+import { useLoaderData, useNavigate } from "react-router";
+import { toast } from "react-toastify";
 
 const Todo = () => {
 
     const todo = useLoaderData();
+    const navigate = useNavigate();
+
+    const handleDelete = () => {
+        const option = confirm('Are you sure?');
+        if (option) {
+            // delete logic
+            axios
+                .delete(`https://698dd177b79d1c928ed6a345.mockapi.io/todos/${todo.id}`)
+                .then(() => {
+                    toast.success('Todo deleted');
+
+                    setTimeout(() => {
+                        navigate('/dashboard/todos');
+                    }, 500);
+                })
+                .catch(() => {
+                    toast.error('Todo deletion failed');
+                })
+        }
+    }
 
     return (
         <div className="mt-4 border border-gray-300 shadow-2xl flex flex-col m-2">
@@ -47,6 +69,10 @@ const Todo = () => {
                             new Date(todo.createdAt).toLocaleDateString("en-IN")
                         }
                     </div>
+                </div>
+
+                <div className="flex justify-center mt-8 mb-5">
+                    <button className="flex px-5 py-1 bg-slate-200 rounded hover:bg-slate-300" onClick={handleDelete}>Delete</button>
                 </div>
             </div>
         </div>
