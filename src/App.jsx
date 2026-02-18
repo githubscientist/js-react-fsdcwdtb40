@@ -59,6 +59,8 @@ const App = () => {
             {
               path: "todo",
               element: <Todo />,
+              loader: todoLoader,
+              hydrateFallbackElement: <p className="text-xl">Loading todo...</p>,
             }
           ]
         }

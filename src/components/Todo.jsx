@@ -1,21 +1,8 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router";
+import { useLoaderData } from "react-router";
 
 const Todo = () => {
 
-    const [todo, setTodo] = useState({});
-    const [searchParams, setSearchParams] = useSearchParams();
-    const id = searchParams.get("id");
-
-    const fetchTodo = async () => {
-        const response = await axios.get(`https://698dd177b79d1c928ed6a345.mockapi.io/todos/${id}`);
-        setTodo(response.data);
-    }
-
-    useEffect(() => {
-        fetchTodo();
-    }, [id]);
+    const todo = useLoaderData();
 
     return (
         <div className="mt-4 border border-gray-300 shadow-2xl flex flex-col m-2">
