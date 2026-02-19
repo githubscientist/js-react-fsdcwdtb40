@@ -1,10 +1,21 @@
+import { useState } from "react";
 import { Link, Outlet, useLoaderData } from "react-router";
 
 const Todos = () => {
     const todos = useLoaderData();
 
+    const [search, setSearch] = useState('');
+
     return (
         <div>
+            <input
+                type="text"
+                placeholder="search todos..."
+                className="border border-gray-300 p-2 w-sm mb-8"
+                value={search}
+                onChange={e => setSearch(e.target.value)}
+            />
+
             <h1 className="text-3xl">Todos</h1>
             {
                 todos.length == 0 ? (
@@ -20,6 +31,7 @@ const Todos = () => {
                             <ul className="space-y-3 list-disc pl-10 mt-4">
                                 {
                                     todos
+                                        .filter(todo => todo.title.toLowerCase().includes(search.toLowerCase()))
                                         .map(todo => (
                                             <li key={todo.id}>
                                                 <Link
