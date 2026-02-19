@@ -1,6 +1,18 @@
+import Child1 from "./components/Child1";
+
 const App = () => {
+
+  // data is in the parent component: App
+  const user = {
+    email: "sathish@guvi.in"
+  }
+
   return (
-    <div>App</div>
+    <>
+      <Child1
+        user={user}
+      />
+    </>
   )
 }
 
