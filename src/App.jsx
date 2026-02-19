@@ -11,6 +11,8 @@ import Todos from "./pages/Todos";
 import Todo from "./components/Todo";
 import todosLoader from "./loaders/unit/todos";
 import todoLoader from "./loaders/unit/todo";
+import CreateTodo from './pages/CreateTodo';
+import UpdateTodo from "./pages/UpdateTodo";
 
 /*
   http://localhost:5173/ => HomeWrapper.jsx
@@ -63,6 +65,14 @@ const App = () => {
               hydrateFallbackElement: <p className="text-xl">Loading todo...</p>,
             }
           ]
+        },
+        {
+          path: "createTodo",
+          element: <CreateTodo />
+        },
+        {
+          path: "updateTodo",
+          element: <UpdateTodo />
         }
       ]
     }
