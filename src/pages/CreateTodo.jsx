@@ -18,7 +18,7 @@ const CreateTodo = () => {
         const newTodo = {
             title: title,
             description: description,
-            status: status == 'Incomplete' ? false : true
+            isCompleted: status == 'Incomplete' ? false : true
         }
 
         // perform an api call

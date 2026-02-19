@@ -26,6 +26,10 @@ const Todo = () => {
         }
     }
 
+    const handleEdit = () => {
+        navigate(`/dashboard/updateTodo/?id=${todo.id}`)
+    }
+
     return (
         <div className="mt-4 border border-gray-300 shadow-2xl flex flex-col m-2">
             <div>
@@ -71,7 +75,9 @@ const Todo = () => {
                     </div>
                 </div>
 
-                <div className="flex justify-center mt-8 mb-5">
+                <div className="flex justify-center mt-8 mb-5 gap-5">
+                    <button className="flex px-5 py-1 bg-slate-200 rounded hover:bg-slate-300" onClick={handleEdit}>Edit</button>
+
                     <button className="flex px-5 py-1 bg-slate-200 rounded hover:bg-slate-300" onClick={handleDelete}>Delete</button>
                 </div>
             </div>

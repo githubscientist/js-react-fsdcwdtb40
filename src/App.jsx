@@ -72,7 +72,9 @@ const App = () => {
         },
         {
           path: "updateTodo",
-          element: <UpdateTodo />
+          element: <UpdateTodo />,
+          loader: todoLoader,
+          hydrateFallbackElement: <p className="text-xl">Loading todo...</p>,
         }
       ]
     }
