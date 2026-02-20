@@ -1,11 +1,23 @@
-import { useState } from "react";
+import { useReducer } from "react";
+// create a reducer function
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'INC':
+      state = state + 1;
+      break;
+  }
+  return state;
+}
 
-// useState hook for state management
+// useReducer hook for state management
 const App = () => {
-  const [count, setCount] = useState(0);
+  const [count, dispatch] = useReducer(reducer, 0);
 
   const handleIncrease = () => {
-    setCount(count + 1);
+    // dispatch on an button click event
+    dispatch({
+      type: 'INC'
+    });
   }
 
   return (
