@@ -1,4 +1,8 @@
+import { createContext } from "react";
 import Child1 from "./components/Child1";
+
+// 1. create a context
+export const UserContext = createContext();
 
 const App = () => {
 
@@ -7,11 +11,12 @@ const App = () => {
     email: "sathish@guvi.in"
   }
 
+  // 2. provide the context
   return (
     <>
-      <Child1
-        user={user}
-      />
+      <UserContext value={user}>
+        <Child1 />
+      </UserContext>
     </>
   )
 }

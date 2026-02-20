@@ -1,11 +1,9 @@
 import Child3 from "./Child3";
 
-const Child2 = ({ user }) => {
+const Child2 = () => {
     return (
         <>
-            <Child3
-                user={user}
-            />
+            <Child3 />
         </>
     )
 }
