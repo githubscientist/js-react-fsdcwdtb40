@@ -1,22 +1,18 @@
-import { createContext } from "react";
-import Child1 from "./components/Child1";
+import { useState } from "react";
 
-// 1. create a context
-export const UserContext = createContext();
-
+// useState hook for state management
 const App = () => {
+  const [count, setCount] = useState(0);
 
-  // data is in the parent component: App
-  const user = {
-    email: "sathish@guvi.in"
+  const handleIncrease = () => {
+    setCount(count + 1);
   }
 
-  // 2. provide the context
   return (
     <>
-      <UserContext value={user}>
-        <Child1 />
-      </UserContext>
+      <h1>Count: {count}</h1>
+
+      <button onClick={handleIncrease}>Increase</button>
     </>
   )
 }
