@@ -1,11 +1,14 @@
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router";
 import { toast } from "react-toastify";
+import { clearForm, selectEmail, selectPassword, setEmail, setPassword } from "../redux/features/auth/loginSlice";
 
 const Login = () => {
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const email = useSelector(selectEmail);
+    const password = useSelector(selectPassword);
+
+    const dispatch = useDispatch();
 
     const navigate = useNavigate();
 
@@ -19,8 +22,7 @@ const Login = () => {
 
         setTimeout(() => {
             // clear the form values
-            setEmail('');
-            setPassword('');
+            dispatch(clearForm());
 
             navigate('/dashboard');
         }, 500);
@@ -36,7 +38,9 @@ const Login = () => {
                         className="border w-full p-1"
                         placeholder="Email..."
                         value={email}
-                        onChange={e => setEmail(e.target.value)}
+                        onChange={e => dispatch(setEmail({
+                            email: e.target.value
+                        }))}
                     />
 
                     <input
@@ -44,7 +48,9 @@ const Login = () => {
                         className="border w-full p-1"
                         placeholder="Password..."
                         value={password}
-                        onChange={e => setPassword(e.target.value)}
+                        onChange={e => dispatch(setPassword({
+                            password: e.target.value
+                        }))}
                     />
 
                     <button

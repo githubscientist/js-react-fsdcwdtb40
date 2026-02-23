@@ -1,28 +1,28 @@
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router";
 import { toast } from "react-toastify";
+import { clearForm, selectEmail, selectName, selectPassword, setEmail, setName, setPassword } from "../redux/features/auth/registerSlice";
 
 // controlled component
 // using state to manage their values
 const Register = () => {
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const name = useSelector(selectName);
+    const email = useSelector(selectEmail);
+    const password = useSelector(selectPassword);
+
+    const dispatch = useDispatch();
 
     const navigate = useNavigate();
 
     const handleRegister = (e) => {
         e.preventDefault();
         console.log('Registering user...')
-        console.log(`Name: ${name}`);
-        console.log(`Email: ${email}`);
-        console.log(`Password: ${password}`);
+
+        console.log(name, email, password);
 
         setTimeout(() => {
             // clear the form
-            setName('');
-            setEmail('');
-            setPassword('');
+            dispatch(clearForm());
 
             toast.success('Registration Successful');
             navigate('/login');
@@ -39,14 +39,18 @@ const Register = () => {
                         className="border w-full p-1"
                         placeholder="Name..."
                         value={name}
-                        onChange={e => setName(e.target.value)}
+                        onChange={e => dispatch(setName({
+                            name: e.target.value
+                        }))}
                     />
                     <input
                         type="text"
                         className="border w-full p-1"
                         placeholder="Email..."
                         value={email}
-                        onChange={e => setEmail(e.target.value)}
+                        onChange={e => dispatch(setEmail({
+                            email: e.target.value
+                        }))}
                     />
 
                     <input
@@ -54,7 +58,9 @@ const Register = () => {
                         className="border w-full p-1"
                         placeholder="Password..."
                         value={password}
-                        onChange={e => setPassword(e.target.value)}
+                        onChange={e => dispatch(setPassword({
+                            password: e.target.value
+                        }))}
                     />
 
                     <button

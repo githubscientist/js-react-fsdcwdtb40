@@ -13,6 +13,8 @@ import todosLoader from "./loaders/unit/todos";
 import todoLoader from "./loaders/unit/todo";
 import CreateTodo from './pages/CreateTodo';
 import UpdateTodo from "./pages/UpdateTodo";
+import { Provider } from "react-redux";
+import store from "./redux/app/store";
 
 /*
   http://localhost:5173/ => HomeWrapper.jsx
@@ -84,13 +86,15 @@ const App = () => {
 
   return (
     <>
-      <ToastContainer
-        hideProgressBar={true}
-        autoClose={2500}
-      />
-      <RouterProvider
-        router={router}
-      />
+      <Provider store={store}>
+        <ToastContainer
+          hideProgressBar={true}
+          autoClose={2500}
+        />
+        <RouterProvider
+          router={router}
+        />
+      </Provider>
     </>
   )
 }
