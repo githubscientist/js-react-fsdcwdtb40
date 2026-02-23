@@ -1,9 +1,16 @@
 import { useReducer, useState } from "react";
 
 const reducer = (state, action) => {
-  return {
-    count: state.count + 1
-  };
+  if (action.type == 'INC') {
+    return {
+      count: state.count + 1
+    }
+  } else if (action.type == 'DEC') {
+    return {
+      count: state.count - 1
+    }
+  }
+  return state;
 }
 
 const App = () => {
@@ -13,13 +20,22 @@ const App = () => {
   });
 
   const handleIncrement = () => {
-    setState();
+    setState({
+      type: 'INC'
+    });
+  }
+
+  const handleDecrement = () => {
+    setState({
+      type: 'DEC'
+    });
   }
 
   return (
     <>
       <h1>Count: {state.count}</h1>
-      <button onClick={handleIncrement}>Increment</button>
+      <button onClick={handleIncrement}>Increment</button> &nbsp;
+      <button onClick={handleDecrement}>Decrement</button>
     </>
   )
 }
