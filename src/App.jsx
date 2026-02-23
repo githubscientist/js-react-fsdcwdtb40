@@ -1,6 +1,14 @@
 const App = () => {
+
+  const handleIncrement = () => {
+    console.log('button clicked');
+  }
+
   return (
-    <div>App</div>
+    <>
+      <h1>Count: { }</h1>
+      <button onClick={handleIncrement}>Increment</button>
+    </>
   )
 }
 
