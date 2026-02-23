@@ -1,12 +1,22 @@
+import { useState } from "react";
+
 const App = () => {
 
+  const [state, setState] = useState({
+    count: 0
+  });
+
   const handleIncrement = () => {
-    console.log('button clicked');
+    setState({
+      count: state.count + 1
+    })
   }
+
+  console.log(state);
 
   return (
     <>
-      <h1>Count: { }</h1>
+      <h1>Count: {state.count}</h1>
       <button onClick={handleIncrement}>Increment</button>
     </>
   )
