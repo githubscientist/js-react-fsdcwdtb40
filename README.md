@@ -83,3 +83,13 @@ App Component: parent who has the data and wants to pass it down to ChildCompone
 Steps:
 
 1. Install React Router: `npm install react-router@latest`
+
+### Async Redux Thunk
+
+- Redux Thunk is a middleware that allows you to write action creators that return a function instead of an action. This function can be used to perform asynchronous operations, such as fetching data from an API, before dispatching an action to the store.
+
+### Synchronous functions vs Asynchronous functions
+
+Synchronous functions are functions that execute in a sequential manner, meaning that the next line of code will not execute until the current line of code has finished executing.
+
+Asynchronous functions, on the other hand, allow for non-blocking execution, meaning that the next line of code can execute while the current line of code is still running. This is typically achieved using callbacks, promises, or async/await syntax in JavaScript.

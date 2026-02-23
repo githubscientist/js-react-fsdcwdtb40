@@ -1,8 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, Outlet, useLoaderData } from "react-router";
+import { selectTodos, setTodos } from "../redux/features/todos/todoSlice";
 
 const Todos = () => {
-    const todos = useLoaderData();
+    const data = useLoaderData();
+
+    const dispatch = useDispatch();
+    const todos = useSelector(selectTodos);
+
+    useEffect(() => {
+        dispatch(setTodos({
+            todos: data
+        }))
+    }, [dispatch]);
 
     const [search, setSearch] = useState('');
 
