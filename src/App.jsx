@@ -1,18 +1,20 @@
-import { useState } from "react";
+import { useReducer, useState } from "react";
+
+const reducer = (state, action) => {
+  return {
+    count: state.count + 1
+  };
+}
 
 const App = () => {
 
-  const [state, setState] = useState({
+  const [state, setState] = useReducer(reducer, {
     count: 0
   });
 
   const handleIncrement = () => {
-    setState({
-      count: state.count + 1
-    })
+    setState();
   }
-
-  console.log(state);
 
   return (
     <>
