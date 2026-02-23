@@ -1,32 +1,34 @@
 import { useReducer, useState } from "react";
 
 const reducer = (state, action) => {
-  if (action.type == 'INC') {
-    return {
-      count: state.count + 1
-    }
-  } else if (action.type == 'DEC') {
-    return {
-      count: state.count - 1
-    }
+  switch (action.type) {
+    case 'INC':
+      return {
+        count: state.count + 1
+      }
+    case 'DEC':
+      return {
+        count: state.count - 1
+      }
   }
+
   return state;
 }
 
 const App = () => {
 
-  const [state, setState] = useReducer(reducer, {
+  const [state, dispatch] = useReducer(reducer, {
     count: 0
   });
 
   const handleIncrement = () => {
-    setState({
+    dispatch({
       type: 'INC'
     });
   }
 
   const handleDecrement = () => {
-    setState({
+    dispatch({
       type: 'DEC'
     });
   }
