@@ -83,3 +83,19 @@ App Component: parent who has the data and wants to pass it down to ChildCompone
 Steps:
 
 1. Install React Router: `npm install react-router@latest`
+
+### Redux
+
+- Redux is a state management library.
+- It is a 3rd party library that can be used with React to manage the state of the application like (useState and useReducer).
+- It provides a centralized store for the state of the application, and a way to update the state using actions and reducers.
+- It is often used in larger applications where the state management becomes complex and difficult to manage with just useState and useReducer.
+
+The folder structure has two folders:
+
+- app: application folder where we will have the central store.
+- features: where we will have the different features of our application, each feature will have its own folder.
+
+features will have slice files, which will contain the reducer and actions for that feature.
+
+slice means a part of the state, for example, if we have a todo application, we can have a slice for the todos, and another slice for the user authentication. Each slice will have its own reducer and actions to manage that part of the state.

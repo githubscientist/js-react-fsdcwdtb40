@@ -1,29 +1,17 @@
-import { useReducer } from "react";
-// create a reducer function
-const reducer = (state, action) => {
-  switch (action.type) {
-    case 'INC':
-      state = state + 1;
-      break;
-  }
-  return state;
-}
+import { useDispatch, useSelector } from "react-redux";
+import { increment, selectCount } from "./redux/features/counter/counterSlice";
 
-// useReducer hook for state management
 const App = () => {
-  const [count, dispatch] = useReducer(reducer, 0);
+  const count = useSelector(selectCount);
+  const dispatch = useDispatch();
 
   const handleIncrease = () => {
-    // dispatch on an button click event
-    dispatch({
-      type: 'INC'
-    });
+    dispatch(increment());
   }
 
   return (
     <>
       <h1>Count: {count}</h1>
-
       <button onClick={handleIncrease}>Increase</button>
     </>
   )
