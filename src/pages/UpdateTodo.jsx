@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useState } from "react";
 import { useLoaderData, useNavigate } from "react-router";
 import { toast } from "react-toastify";
@@ -17,23 +16,23 @@ const UpdateTodo = () => {
 
         // prepare the data to be created
         const newTodo = {
+            ...todo,
             title: title,
             description: description,
-            isCompleted: status == 'Incomplete' ? false : true
+            isCompleted: status == 'Incomplete' ? false : true,
         }
 
-        // perform an update api call
-        axios
-            .put(`https://698dd177b79d1c928ed6a345.mockapi.io/todos/${todo.id}`, newTodo)
-            .then(response => {
-                toast.success('Todo updated');
+        let todos = localStorage.getItem("todos") || [];
+        todos = JSON.parse(todos);
 
-                // navigate to the previous page
-                navigate(-1);
-            })
-            .catch(error => {
-                toast.error('Todo updation failed');
-            })
+        localStorage.setItem("todos", JSON.stringify([
+            ...(todos.filter(t => t.id != todo.id)),
+            newTodo
+        ]));
+
+        toast.success("Todo updated!");
+
+        navigate(-1);
     }
 
     return (

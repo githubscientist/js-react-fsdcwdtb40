@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
@@ -13,28 +12,26 @@ const CreateTodo = () => {
 
     const handleAddTodo = (e) => {
         e.preventDefault();
+        let todos = localStorage.getItem("todos") || [];
+        todos = JSON.parse(todos);
 
         // prepare the data to be created
         const newTodo = {
             title: title,
             description: description,
-            isCompleted: status == 'Incomplete' ? false : true
+            isCompleted: status == 'Incomplete' ? false : true,
+            id: todos.length > 0 ? parseInt(todos[todos.length - 1].id) + 1 : 1,
+            createdAt: new Date()
         }
 
-        // perform an api call
-        axios
-            .post(`https://698dd177b79d1c928ed6a345.mockapi.io/todos`, newTodo)
-            .then(response => {
-                toast.success('Todo Created');
+        todos.push(newTodo);
 
-                // redirect the user to the /todos page
-                setTimeout(() => {
-                    navigate('/dashboard/todos');
-                }, 500);
-            })
-            .catch(error => {
-                toast.error('Todo creation failed:', error.message);
-            });
+        // set this as the new todos in localStorage
+        localStorage.setItem("todos", JSON.stringify(todos));
+
+        toast.success("Todo created!");
+
+        navigate("/dashboard/todos");
     }
 
     return (

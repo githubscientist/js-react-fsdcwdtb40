@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useLoaderData, useNavigate } from "react-router";
 import { toast } from "react-toastify";
 
@@ -11,18 +10,14 @@ const Todo = () => {
         const option = confirm('Are you sure?');
         if (option) {
             // delete logic
-            axios
-                .delete(`https://698dd177b79d1c928ed6a345.mockapi.io/todos/${todo.id}`)
-                .then(() => {
-                    toast.success('Todo deleted');
+            let todos = localStorage.getItem("todos") || [];
+            todos = JSON.parse(todos);
 
-                    setTimeout(() => {
-                        navigate('/dashboard/todos');
-                    }, 500);
-                })
-                .catch(() => {
-                    toast.error('Todo deletion failed');
-                })
+            localStorage.setItem("todos", JSON.stringify(todos.filter(t => t.id != todo.id)));
+
+            toast.success("Todo deleted!");
+
+            navigate("/dashboard/todos");
         }
     }
 
