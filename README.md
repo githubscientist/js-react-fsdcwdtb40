@@ -93,3 +93,12 @@ Steps:
 Synchronous functions are functions that execute in a sequential manner, meaning that the next line of code will not execute until the current line of code has finished executing.
 
 Asynchronous functions, on the other hand, allow for non-blocking execution, meaning that the next line of code can execute while the current line of code is still running. This is typically achieved using callbacks, promises, or async/await syntax in JavaScript.
+
+### Prompt Engineering
+
+Topics:
+
+- Writing Effective Prompts
+- Output Control Techniques
+- Context Handling in Prompts
+- Role-based Prompt Design
