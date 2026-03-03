@@ -1,20 +1,16 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 const Home = () => {
 
-    let count = useRef(0);
-    let [state, setState] = useState(false);
+    let [count, setCount] = useState(0);
+    let counterButton = useRef(null);
 
     const handleClick = () => {
-        count.current = count.current + 1;
-        console.log('count value changed', count.current);
+        setCount(count + 1);
     }
 
-    useEffect(() => {
-        console.log('state changed');
-    }, [state]);
-
-    console.log('component rendered');
+    // console.log(document.getElementById("counterButton")?.textContent);
+    console.log(counterButton.current?.textContent);
 
     return (
         <div className="p-4">
@@ -30,12 +26,8 @@ const Home = () => {
                 <button
                     className="border px-4 py-2 hover:bg-amber-500 hover:text-white"
                     onClick={handleClick}
-                >Counter {count.current}</button>
-                &nbsp;
-                <button
-                    className="border px-4 py-2 hover:bg-green-500 hover:text-white"
-                    onClick={() => setState(!state)}
-                >Re-Render Component</button>
+                    ref={counterButton}
+                >Counter {count}</button>
             </div>
         </div>
     )
