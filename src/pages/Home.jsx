@@ -1,13 +1,13 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const Home = () => {
 
-    let count = 0;
+    let count = useRef(0);
     let [state, setState] = useState(false);
 
     const handleClick = () => {
-        count = count + 1;
-        console.log('count value changed', count);
+        count.current = count.current + 1;
+        console.log('count value changed', count.current);
     }
 
     useEffect(() => {
@@ -30,7 +30,7 @@ const Home = () => {
                 <button
                     className="border px-4 py-2 hover:bg-amber-500 hover:text-white"
                     onClick={handleClick}
-                >Counter {count}</button>
+                >Counter {count.current}</button>
                 &nbsp;
                 <button
                     className="border px-4 py-2 hover:bg-green-500 hover:text-white"
