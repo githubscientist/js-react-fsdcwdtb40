@@ -1,16 +1,33 @@
-import { useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 const Home = () => {
 
     let [count, setCount] = useState(0);
     let counterButton = useRef(null);
+    let [number, setNumber] = useState(1000000);
 
     const handleClick = () => {
         setCount(count + 1);
     }
 
-    // console.log(document.getElementById("counterButton")?.textContent);
-    console.log(counterButton.current?.textContent);
+    const expensiveCalculation = (number) => {
+        let sum = 0;
+
+        for (let i = 1; i <= number; i++) {
+            sum += i;
+        }
+
+        return sum;
+    }
+
+    // let value = useMemo(() => expensiveCalculation(number), [number]);
+    let value = expensiveCalculation(number);
+
+    console.log(number);
+
+    useEffect(() => {
+        console.log(value);
+    }, [value]);
 
     return (
         <div className="p-4">
@@ -28,6 +45,17 @@ const Home = () => {
                     onClick={handleClick}
                     ref={counterButton}
                 >Counter {count}</button>
+            </div>
+            <br />
+
+            <div>
+                <p>Change for the calculation</p>
+                <input
+                    type="number"
+                    placeholder="0"
+                    value={number}
+                    onChange={(e) => setNumber(e.target.value)}
+                />
             </div>
         </div>
     )

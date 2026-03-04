@@ -102,3 +102,26 @@ Topics:
 - Output Control Techniques
 - Context Handling in Prompts
 - Role-based Prompt Design
+
+useRef hook:
+
+- We can use the useRef for two purposes:
+  - To access a DOM element directly.
+  - To store a mutable value that does not cause a re-render when updated. But the value will persist across renders.
+
+useMemo hook:
+
+- useMemo is a hook that allows you to memoize a value, so that it is only re-computed when its dependencies change. This can help improve performance by avoiding unnecessary calculations on every render.
+
+Higher Order Components (HOC):
+
+- A higher-order component (HOC) is a function that takes a component and returns a new component. HOCs are used to reuse component logic and can be used to add additional functionality to a component without modifying the original component.
+- This will not render the original component, but will return a new component that wraps the original component and adds additional functionality to it.
+
+Higher Order Functions (HOF):
+
+- A higher-order function (HOF) is a function that takes one or more functions as arguments and/or returns a function as its result.
+
+Callback Functions:
+
+- A callback function is a function that is passed as an argument to another function.
